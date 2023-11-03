@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     //フラグで画面遷移を制御する（NavigationStackを使用する）
     @State private var start = false
+    @State private var isActive = false
     
     var body: some View {
         NavigationStack{
@@ -20,8 +21,8 @@ struct HomeView: View {
                 Spacer().frame(height: 50)
                 
                 Button(action: {
-                    //syori
                     start.toggle()
+                    isActive = true
                 },label: {
                     Image("start_button")
                         .resizable()
