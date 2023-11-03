@@ -9,7 +9,31 @@ import SwiftUI
 
 struct StopWatchView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+                Spacer()
+            VStack {
+                Text("0.0")
+                    .font(.system(size: 100))
+                    .bold()
+            }
+            .padding(.top, 150)
+                Spacer()
+            
+            VStack {
+                Button(action: {
+                    //syori
+                },label: {
+                    Image("stop_button")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                })
+                .padding(.bottom, 200)
+            }
+            
+        }
+//        .frame(maxWidth: .infinity, alignment: .center)
+        
     }
 }
 
