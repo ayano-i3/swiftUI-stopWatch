@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct StopWatchView: View {
-    @State private var stopWatch: Double = 0.0
+    @State var stopWatch: Double = 0.0
+    @State var timer: Timer? = nil
     
     
     var body: some View {
@@ -17,7 +18,7 @@ struct StopWatchView: View {
                 
                 Spacer()
                 VStack {
-                    Text(String("\(stopWatch)"))
+                    Text(timeFormat(time: stopWatch))
                         .font(.system(size: 100))
                         .bold()
                         .onAppear() {
@@ -50,8 +51,11 @@ struct StopWatchView: View {
     
     func start() {
         //TODO: 文字の進み方がおかしい
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){ timer in
-            stopWatch += 0.1
+        if timer == nil {
+            timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true){ _ in
+                stopWatch += 0.1
+        }
+        
         }
     }
     
@@ -60,7 +64,11 @@ struct StopWatchView: View {
 //        Timer.invalidate()
     }
     
-    }
+    func timeFormat(time: Double) -> String {
+            return String(format: "%.1f", time)
+        }
+    
+}
 
 struct StopWatchView_Previews: PreviewProvider {
     static var previews: some View {
