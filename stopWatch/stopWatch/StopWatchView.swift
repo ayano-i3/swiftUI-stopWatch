@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StopWatchView: View {
-    @State var stopWatch: Double = 0.0
+    @State var stopWatch: Double = 00.00
     @State var timer: Timer? = nil
     
     
@@ -64,7 +64,10 @@ struct StopWatchView: View {
     }
         
         func timeFormat(time: Double) -> String {
-            return String(format: "%.1f", time)
+            let seconds = Int(time) % 60
+            let fraction = Int((time - Double(seconds)) * 100)
+            
+            return String(format: "%02d.%02d", seconds, fraction)
         }
         
     }
