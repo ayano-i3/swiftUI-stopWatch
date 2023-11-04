@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct CountDownView: View {
+    @State private var countDown = 3
+    @State private var next = false
     
-        @State private var countDown = 3
-        @State private var next = false
-        
-        let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         
         
     var body: some View {
