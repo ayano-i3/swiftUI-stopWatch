@@ -35,6 +35,9 @@ struct StopWatchView: View {
                 
                 Button(action: {
                     stop()
+                    if (stopWatch == 10.00) {
+                        
+                    }
                 },label: {
                     Image("stop_button")
                         .resizable()
@@ -67,7 +70,7 @@ struct StopWatchView: View {
             let seconds = Int(time) % 60
             let fraction = Int((time - Double(seconds)) * 100)
             
-            return String(format: "%02d.%02d", seconds, fraction)
+            return String(format: "%02d.%02d", seconds, fraction, fraction)
         }
         
     }
